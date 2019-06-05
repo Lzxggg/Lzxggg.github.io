@@ -1,91 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-
-  
-  <title>npm 的背墙问题  以及 pack-lock.json的作用 | Lzxgg</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="npm 的背墙问题  以及  pack-lock.json的作用在node.js中，我们经常用npm来下载各种第三方包  express body-parser express-art-template art-template bootstrap ……  npm背墙问题的解决然而由于某些包的下载地址并不是国内的服务器 就会导致下载速度过慢的情况存在 解决办法就是利用国内的镜像来进行下载，解决方法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="npm 的背墙问题  以及 pack-lock.json的作用">
-<meta property="og:url" content="http://yoursite.com/2019/06/04/npm 的背墙问题  以及  pack-lock.json的作用/index.html">
-<meta property="og:site_name" content="Lzxgg">
-<meta property="og:description" content="npm 的背墙问题  以及  pack-lock.json的作用在node.js中，我们经常用npm来下载各种第三方包  express body-parser express-art-template art-template bootstrap ……  npm背墙问题的解决然而由于某些包的下载地址并不是国内的服务器 就会导致下载速度过慢的情况存在 解决办法就是利用国内的镜像来进行下载，解决方法">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-04T10:46:29.423Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="npm 的背墙问题  以及 pack-lock.json的作用">
-<meta name="twitter:description" content="npm 的背墙问题  以及  pack-lock.json的作用在node.js中，我们经常用npm来下载各种第三方包  express body-parser express-art-template art-template bootstrap ……  npm背墙问题的解决然而由于某些包的下载地址并不是国内的服务器 就会导致下载速度过慢的情况存在 解决办法就是利用国内的镜像来进行下载，解决方法">
-  
-    <link rel="alternate" href="/atom.xml" title="Lzxgg" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Lzxgg</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">主页</a>
-        
-          <a class="main-nav-link" href="/archives">文章</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-npm 的背墙问题  以及  pack-lock.json的作用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/04/npm 的背墙问题  以及  pack-lock.json的作用/" class="article-date">
-  <time datetime="2019-06-04T10:46:40.244Z" itemprop="datePublished">2019-06-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      npm 的背墙问题  以及 pack-lock.json的作用
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/loveminimal" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            npm 的背墙问题  以及 pack-lock.json的作用
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/06/04 周二 18:46&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/06/04 周二 18:46
+        </span></span></div>
+    </div>
+    <div class="article-content">
         <h3 id="npm-的背墙问题-以及-pack-lock-json的作用"><a href="#npm-的背墙问题-以及-pack-lock-json的作用" class="headerlink" title="npm 的背墙问题  以及  pack-lock.json的作用"></a><code>npm</code> 的背墙问题  以及  <code>pack-lock.json</code>的作用</h3><p>在<code>node.js</code>中，我们经常用<code>npm</code>来下载各种第三方包</p>
 <ul>
 <li>express</li>
@@ -108,124 +81,19 @@
 <p>带来速度的同时，<code>npm</code> 也挖了个大大的坑：</p>
 <p><strong>以后直接改 <code>package.json</code>文件相应模块的版本号，再执行<code>npm install</code>不会更新了（好可怕），你只能手动用<code>npm install xxx@yy</code>指定版本号来安装，然后它会自动更新 <code>package-lock.json</code> 文件。直接执行<code>npm install</code>时，如果不存在 <code>package-lock.json</code> 文件，它会根据安装模块后的 node_modules 目录结构来创建；如果已经存在 <code>package-lock.json</code> 文件，则它只会根据 <code>package-lock.json</code> 文件指定的结构来下载模块，并不会理会 <code>package.json</code> 文件。</strong></p>
 
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/04/npm 的背墙问题  以及  pack-lock.json的作用/" data-id="cjwhohehd0006kkw64ip2oxnq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2019/06/04/node 中的 path 核心模块的 API 部分 总结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          node 中的 path 核心模块的 API 部分 总结
-        
-      </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
     </a>
-  
-  
-    <a href="/2019/06/04/MongoDB 数据库 在 node.js 中的应用/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">MongoDB数据库在node.js中的应用</div>
-    </a>
-  
-</nav>
+</div>
 
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">17</span></li></ul>
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/06/04/圣杯布局和双飞翼布局/">圣杯布局和双飞翼布局</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/04/H5新增API/">H5新增API以及一些案例</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/04/字体图标的使用/">字体图标的使用</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/04/逻辑与 逻辑或 在 js 中的应用/">逻辑与 逻辑或 在 js 中的应用</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/04/关于分页插件 Panigation.js 的使用/">利用分页插件进行假分页</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 Xiao Lei<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">主页</a>
-  
-    <a href="/archives" class="mobile-nav-link">文章</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
 </body>
+
 </html>
