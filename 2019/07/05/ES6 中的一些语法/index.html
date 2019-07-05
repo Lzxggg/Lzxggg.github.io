@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            ES6一些新增特性
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/07/05 周五 22:09&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/07/05 周五 22:09
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <h4 id="let-和-const"><a href="#let-和-const" class="headerlink" title="let 和 const"></a><code>let</code> 和 <code>const</code></h4><ol>
+<li><p>ES6新更新了块级作用域的存在，<code>let</code>和<code>const</code>在块级作用域内声明的变量在作用域外都无法访问</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i &lt; <span class="number">3</span>; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)  <span class="comment">//这里正常打印i的值</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i) <span class="comment">//在这就是undefined   const和let都是如此</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p><code>let</code>和<code>const</code>不能重复定义（在同一个作用域内  如果在不同的作用域内可以定义重复的变量）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> c = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">11</span>   <span class="comment">//在这里就进行报错</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>const</code>所定义的是常量  他所定义的变量值不允许修改  所以声明变量必须同时进行初始化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> k = <span class="number">1</span></span><br><span class="line">k = <span class="number">2</span>  <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>let</code>和<code>const</code> 不存在预解析(什么是预解析  就是把函数  变量的声明提到最前面进行   赋值是执行到相应的行数的时候进行赋值  如果之前没赋值就打印  那么就是 undefined)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)  <span class="comment">//报错</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)  <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ol>
+<h4 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h4><ol>
+<li><p>变量的解构赋值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [c,d,e] = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(c,d,e)   <span class="comment">//456</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [c,d,e] = [,<span class="number">2</span>,]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(c,d,e) <span class="comment">//undefined 2 undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [c = <span class="number">111</span>,d,e] = [,<span class="number">22</span>,]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(c,d,e)  <span class="comment">// 111 22 undefined</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象的解构赋值(注意用花括号)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;foo,obj&#125; = &#123;<span class="attr">obj</span>:<span class="string">'hi'</span>,<span class="attr">foo</span>:<span class="string">'hello'</span>&#125;</span><br><span class="line"><span class="built_in">console</span>.log(foo)    <span class="comment">//hello</span></span><br><span class="line"><span class="built_in">console</span>.log(obj)    <span class="comment">//hi</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//如果是对象有别名的情况下</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">foo</span>:abc , obj&#125; = &#123;<span class="attr">obj</span>:<span class="string">'hi'</span>,<span class="attr">foo</span>:<span class="string">'hello'</span>&#125;</span><br><span class="line"><span class="built_in">console</span>.log(foo)  <span class="comment">//报错 foo  is  not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(obj)  <span class="comment">//hi</span></span><br><span class="line"><span class="built_in">console</span>.log(abc)  <span class="comment">//hello</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//无论别名是什么  赋值时都要用原对象的名字</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">foo</span>:abc , obj&#125; = &#123;<span class="attr">obj</span>:<span class="string">'hi'</span>,<span class="attr">abc</span>:<span class="string">'hello'</span>&#125;  <span class="comment">//abc这里应该写 foo  </span></span><br><span class="line"><span class="built_in">console</span>.log(obj)  <span class="comment">//hi</span></span><br><span class="line"><span class="built_in">console</span>.log(abc)  <span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//有默认值的对象的解构赋值(有默认值就不用赋值)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">foo</span>:abc = <span class="string">'hello'</span> , obj&#125; = &#123;<span class="attr">obj</span>:<span class="string">'hi'</span>&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj)  <span class="comment">//hi</span></span><br><span class="line"><span class="built_in">console</span>.log(abc)  <span class="comment">//hello</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//常用对象的解构赋值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123;cos,sin,random&#125; = <span class="built_in">Math</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//然后Math的cos  sim  random  函数就可以用了  直接就</span></span><br><span class="line">cos(<span class="number">60</span>) <span class="comment">//调用即可</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串的解构赋值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b,c,d,e] = <span class="string">'hello'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a,b,c,d,e) <span class="comment">//h e l l o</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//类数组长度属性(理解的不好)</span></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">length</span>:len&#125; = <span class="string">'hello'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(len)  <span class="comment">//5</span></span><br><span class="line"><span class="built_in">console</span>.log(length) <span class="comment">//error  因为起了别名 跟上边一样理解字符串新增方法</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="字符串新增方法"><a href="#字符串新增方法" class="headerlink" title="字符串新增方法"></a>字符串新增方法</h4><ol>
+<li><p>includes()  //用来判断一个字符串是否含有另一个字串 如果有返回true  否则  false</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = <span class="string">'hello'</span></span><br><span class="line"></span><br><span class="line">arr.includes(<span class="string">'llo'</span>)   <span class="comment">//true</span></span><br><span class="line">api的第二个参数是指从第几个字符开始算</span><br><span class="line">arr.includes(<span class="string">'llo'</span>,<span class="number">4</span>)  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>endsWith() //用来判断一个字符串是否由一个指定的字符串结尾</p>
+</li>
+<li><p>startsWith()  //用来判断一个字符串是否由一个指定的字符串开头</p>
+</li>
+<li><p>模板字符串   用``来书写模板字符串  非常像art-template</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">        username:<span class="string">'lfh'</span>,</span><br><span class="line">        age:<span class="string">'18'</span>,</span><br><span class="line">        gender:<span class="string">'nan'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> fn  = <span class="function"><span class="keyword">function</span>(<span class="params">he</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> he</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> tql = <span class="string">`</span></span><br><span class="line"><span class="string">        &lt;div&gt;</span></span><br><span class="line"><span class="string">        &lt;span&gt;<span class="subst">$&#123;obj.username&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">        &lt;span&gt;<span class="subst">$&#123;obj.age&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">        &lt;span&gt;<span class="subst">$&#123;obj.gender&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">        &lt;span&gt;<span class="subst">$&#123;<span class="number">1</span>+<span class="number">1</span>&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">        &lt;span&gt;<span class="subst">$&#123;fn(<span class="string">'臭嗨'</span>)&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">        &lt;div&gt;</span></span><br><span class="line"><span class="string">    `</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(tql)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//所对应的箭头函数</span></span><br><span class="line"><span class="keyword">let</span> foo = <span class="function"><span class="params">obj</span> =&gt;</span> obj</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//所对应的箭头函数 如果有多个参数用小括号包裹起来</span></span><br><span class="line"><span class="keyword">let</span> add = <span class="function">(<span class="params">a,b</span>) =&gt;</span> a+b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> d = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> a+b+d</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//所对应的箭头函数 如果有</span></span><br><span class="line"><span class="keyword">let</span> add = <span class="function">(<span class="params">a,b</span>) =&gt;</span> &#123;<span class="keyword">let</span> d = <span class="number">1</span>;<span class="keyword">return</span> a+b+d&#125;</span><br></pre></td></tr></table></figure>
+
+<p>箭头函数不能够用 new 构造</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="keyword">let</span> arr = [<span class="number">123</span>,<span class="number">456</span>,<span class="number">789</span>]</span><br><span class="line"> arr.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">element,index</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(element,index)</span><br><span class="line"> &#125;)</span><br><span class="line"><span class="comment">//所对应的箭头函数</span></span><br><span class="line"> arr.forEach(<span class="function">(<span class="params">element,index</span>) =&gt;</span> &#123;</span><br><span class="line">     <span class="built_in">console</span>.log(element,index)</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>箭头函数不能用arguments 来接收参数   可以用rest参数进行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="function">(<span class="params">...arg</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arg)</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="关于函数的一些新特性"><a href="#关于函数的一些新特性" class="headerlink" title="关于函数的一些新特性"></a>关于函数的一些新特性</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参数默认值</span></span><br><span class="line"><span class="comment">//section 1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> p = param || <span class="string">'hello'</span></span><br><span class="line">    <span class="built_in">console</span>.log(p)</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="string">'hi'</span>)</span><br><span class="line"><span class="comment">//hi</span></span><br><span class="line">foo()</span><br><span class="line"><span class="comment">//hello</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//section2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param = <span class="string">'hello'</span></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(param)</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="string">'hi'</span>)</span><br><span class="line"><span class="comment">//hi</span></span><br><span class="line">foo()</span><br><span class="line"><span class="comment">//hello</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//section3 参数解构赋值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">foo</span>(<span class="params">&#123;username,password&#125; = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(username,password)</span><br><span class="line">&#125;</span><br><span class="line">foo(&#123;<span class="attr">username</span>:<span class="string">'haha'</span>,<span class="attr">password</span>:<span class="string">'xl429429'</span>&#125;)</span><br><span class="line"><span class="comment">//haha xl429429</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//rest参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a,b,...param</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(param)</span><br><span class="line">    <span class="comment">// 接受除了前面列举之外的参数</span></span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">[<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//扩展运算符 ... 将数组拆开</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a,b,c,d,e,f,g</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a + b + c + d + e + f + g)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr  = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line"></span><br><span class="line">foo(...arr)</span><br><span class="line"><span class="comment">//28</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//合并数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> arr2 = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr3 = [...arr1,...arr2]</span><br><span class="line"><span class="built_in">console</span>.log(arr3)</span><br><span class="line"><span class="comment">// 1,2,3,4,5,6</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
