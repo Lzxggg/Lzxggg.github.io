@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            Vue第一天 学习记录
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/07/06 周六 21:49&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/07/06 周六 21:51
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <h4 id="Vue使用基本模式"><a href="#Vue使用基本模式" class="headerlink" title="Vue使用基本模式"></a>Vue使用基本模式</h4><ol>
+<li>在head头部引入Vue.js</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"node_modules/vue/dist/vue.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在body标签最后部分书写script标签</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">           el:<span class="string">'#app'</span>,  <span class="comment">//选中的元素  和Jquery的选择器差不多</span></span><br><span class="line">           data: &#123;</span><br><span class="line">              msg:<span class="string">'我们的明天'</span></span><br><span class="line"></span><br><span class="line">           &#125;, <span class="comment">//数据部分</span></span><br><span class="line">           methods:&#123;</span><br><span class="line"></span><br><span class="line">           &#125; <span class="comment">//方法部分</span></span><br><span class="line">       &#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在相应的div中进行应用</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>  //此时msg的字符就会在p里面显示出来</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="v-cloak-和-v-text"><a href="#v-cloak-和-v-text" class="headerlink" title="v-cloak 和  v-text"></a>v-cloak 和  v-text</h4><p>作用：防止数据过多加载的时候把模板露出来   即   显示类似这种</p>
+<p>应用：</p>
+<ol>
+<li>v-cloak: 应用时可以在下面双括号中进行字符串拼接等操作  不会覆盖</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;p v-cloak&gt;&#123;&#123;msg&#125;&#125;&lt;<span class="regexp">/p&gt;  /</span><span class="regexp">/此时msg的字符就会在p里面显示出来  </span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>v-text:应用时会覆盖掉标签内的内容</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-text</span>=<span class="string">'msg'</span>&gt;</span>dfghdfhdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span>  //无论p里写的是什么   都会呗v-text覆盖掉</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Vue-中的属性绑定-v-bind"><a href="#Vue-中的属性绑定-v-bind" class="headerlink" title="Vue 中的属性绑定 v-bind"></a>Vue 中的属性绑定 v-bind</h4><p>作用：用bind 绑定了之后就回去vm实例中寻找这个变量</p>
+<p>简写： :xxx属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    .co &#123;</span><br><span class="line">        color:red</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">===============上部分为定义的类名================</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-bind:class</span>=<span class="string">"co"</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line">    //用bind 绑定了之后就回去vm实例中寻找这个变量 而达到改变的效果 </span><br><span class="line">    //v-bind 可以简化为      :   即用冒号代替</span><br><span class="line">     	<span class="tag">&lt;<span class="name">p</span> <span class="attr">:class</span>=<span class="string">"co"</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">=================dom结构=======================</span><br><span class="line">比如在data中</span><br><span class="line">data : &#123;</span><br><span class="line">	co : ['co']</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Vue事件绑定-v-on"><a href="#Vue事件绑定-v-on" class="headerlink" title="Vue事件绑定  v-on"></a>Vue事件绑定  v-on</h4><p>作用：用v-on绑定事件  事件的方法 都存在 methods 中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span>      </span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span> <span class="attr">v-on:click</span> = <span class="string">'div1Handler'</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点击"</span> <span class="attr">v-on:click</span>=<span class="string">"btnHandler"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      //可以简写为</span><br><span class="line">   		 <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span> @<span class="attr">click</span> = <span class="string">'div1Handler'</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点击"</span> @<span class="attr">click</span>=<span class="string">"btnHandler"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el:<span class="string">'#app'</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">    		<span class="comment">//储存方法的地方</span></span><br><span class="line">            methods: &#123;</span><br><span class="line">                div1Handler()&#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'div点击事件'</span>)</span><br><span class="line">                &#125;,</span><br><span class="line">                btnHandler() &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'btn点击事件'</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Vue事件修饰符"><a href="#Vue事件修饰符" class="headerlink" title="Vue事件修饰符"></a>Vue事件修饰符</h4><p>分类：</p>
+<ol>
+<li>stop : 阻止冒泡事件</li>
+<li>prevent 阻止默认事件</li>
+<li>cature 添加事件侦听器时使用事件捕获模式</li>
+<li>once  只触发一次</li>
+<li>self 只是自身触发</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--//.prevent 阻止默认事件--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--//.stop 阻止冒泡事件--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span> <span class="attr">v-on:click</span> = <span class="string">'div1Handler'</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点击"</span> @<span class="attr">click.stop</span>=<span class="string">"btnHandler"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--使事件只触发一次 用once--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--事件修饰符是可以连写的  once 的时候 谁前谁后都没有关系--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--self不能当作stop来使用--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.baidu.com"</span> @<span class="attr">click.prevent.once</span>&gt;</span>百度已死<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el:<span class="string">'#app'</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                div1Handler()&#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'div点击事件'</span>)</span><br><span class="line">                &#125;,</span><br><span class="line">                btnHandler() &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'btn点击事件'</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
