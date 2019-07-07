@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            Vue第二天 学习记录
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/07/07 周日 22:22&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/07/07 周日 22:22
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <h4 id="Vue中的双向数据绑定"><a href="#Vue中的双向数据绑定" class="headerlink" title="Vue中的双向数据绑定"></a><code>Vue</code>中的双向数据绑定</h4><blockquote>
+<p>作用：双向数据绑定之后，任意一方的数据发生改变另一个数据也会进行改变</p>
+<p>注意：数据双向绑定和v-bind 单向绑定冲突只能使用一个</p>
+</blockquote>
+<blockquote>
+<p>使用方法：</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> v-model=<span class="string">"id"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Vue小案例-品牌的增加删除"><a href="#Vue小案例-品牌的增加删除" class="headerlink" title="Vue小案例 品牌的增加删除"></a><code>Vue</code>小案例 品牌的增加删除</h4><blockquote>
+<p>在一个表格中对数据进行增删操作，这个小项目会用到bootstrap</p>
+<p>记住在<code>Vue</code>中使用bootstrap不用加载<code>jquery</code> 因为<code>Vue</code>就是框架  不需要<code>jquery</code>进行<code>dom</code>操作</p>
+</blockquote>
+<blockquote>
+<p>小项目开始：</p>
+<p>先引入<code>bootstrap.css</code></p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel="stylesheet" href="bootstrap.css"&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>然后引入<code>Vue.js</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"node_modules/vue/dist/vue.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h5 id="bootstrap-面板模块"><a href="#bootstrap-面板模块" class="headerlink" title="bootstrap 面板模块"></a>bootstrap 面板模块</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel panel-default"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-heading"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"panel-title"</span>&gt;</span></span><br><span class="line">               添加项目</span><br><span class="line">           <span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-body form-inline"</span>&gt;</span>  //form-inline 将这些label元素都在行内显示</span><br><span class="line">           <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">           	id:</span><br><span class="line">               <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">v-model</span>=<span class="string">"id"</span>&gt;</span> //双向绑定id</span><br><span class="line">           <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">                Name:</span><br><span class="line">               <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">v-model</span>=<span class="string">"name"</span>&gt;</span> //双向绑定name</span><br><span class="line">           <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"添加"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> @<span class="attr">click</span>=<span class="string">"add"</span>&gt;</span> //添加点击事件</span><br><span class="line">           <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"pull-right"</span>&gt;</span>   //pull-right 使整个label固定到最右边</span><br><span class="line">                search:</span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control "</span>  <span class="attr">v-model</span>=<span class="string">"keywords"</span>&gt;</span> //双向绑定关键字</span><br><span class="line">           <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="bootstrap表格模块"><a href="#bootstrap表格模块" class="headerlink" title="bootstrap表格模块"></a>bootstrap表格模块</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-striped"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">th</span>&gt;</span>Id<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">th</span>&gt;</span>品牌<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">th</span>&gt;</span>时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">th</span>&gt;</span>操作<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">tr</span> <span class="attr">v-for</span>=<span class="string">"item in search(keywords)"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span> //v-for的使用</span><br><span class="line">               <span class="tag">&lt;<span class="name">th</span>&gt;</span>&#123;&#123;item.id&#125;&#125;<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">th</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">th</span>&gt;</span>&#123;&#123;item.ctime | dateFromat&#125;&#125;<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> @<span class="attr">click.prevent</span>=<span class="string">"del(item.id)"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Vm实例部分"><a href="#Vm实例部分" class="headerlink" title="Vm实例部分"></a><code>Vm</code>实例部分</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el:<span class="string">"#app"</span>,     <span class="comment">//上述两个bootstrap模块都由 id  为 app  的div包含</span></span><br><span class="line">    data:&#123;</span><br><span class="line">        id:<span class="string">''</span>,</span><br><span class="line">        name:<span class="string">''</span>,</span><br><span class="line">        keywords:<span class="string">''</span>,</span><br><span class="line">        list:[</span><br><span class="line">            &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">name</span>:<span class="string">"奔驰"</span>,<span class="attr">ctime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;</span><br><span class="line">            &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">name</span>:<span class="string">"宝马"</span>,<span class="attr">ctime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        add() &#123;</span><br><span class="line">    		<span class="comment">//把当前需要添加的放到一个对象里</span></span><br><span class="line">    		<span class="keyword">let</span> temp = &#123;<span class="attr">id</span>:<span class="keyword">this</span>.id,<span class="attr">name</span>:<span class="keyword">this</span>.name,<span class="attr">ctime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;</span><br><span class="line">            <span class="comment">//把temp丢到数组里</span></span><br><span class="line">            <span class="keyword">this</span>.list.push(temp)</span><br><span class="line">    		<span class="comment">//然后把 id   name  初始化为空</span></span><br><span class="line">    		<span class="keyword">this</span>.name = <span class="string">''</span>,</span><br><span class="line">            <span class="keyword">this</span>.id = <span class="string">''</span></span><br><span class="line">		&#125;,</span><br><span class="line">        del(id)	&#123;</span><br><span class="line">            <span class="keyword">this</span>.list.forEach(<span class="function">(<span class="params">item,i</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(item.id == id) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.list.splice(i,<span class="number">1</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        search(keywords)  &#123;</span><br><span class="line">            <span class="keyword">let</span> newList = []</span><br><span class="line">            <span class="keyword">this</span>.list.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(item.name.includes(keywords))&#123;</span><br><span class="line">                    newList.push(item)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            <span class="keyword">return</span> newList</span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="Vue过滤器"><a href="#Vue过滤器" class="headerlink" title="Vue过滤器"></a><code>Vue</code>过滤器</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//过滤器在dom中</span></span><br><span class="line">&lt;p&gt;&#123;&#123;item.ctime | dataFormat&#125;&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/过滤器第一个参数为过滤器的名字  这是个全局过滤器 第二个参数是要使用过滤器过滤的数据</span></span><br><span class="line"><span class="regexp">Vue.filter('dataFormat',(dateStr) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">    let dt = new Date(dateStr)</span></span><br><span class="line"><span class="regexp">    </span></span><br><span class="line"><span class="regexp">    var y = dt.getFullYear()</span></span><br><span class="line"><span class="regexp">    var m = dt.getMouth() + 1</span></span><br><span class="line"><span class="regexp">    var d = dt.getDate()</span></span><br><span class="line"><span class="regexp">    </span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/使用模板字符串</span></span><br><span class="line"><span class="regexp">    let st = `&#123;$y&#125;-&#123;$m&#125;-&#123;$d&#125;`</span></span><br><span class="line"><span class="regexp">    return st</span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
