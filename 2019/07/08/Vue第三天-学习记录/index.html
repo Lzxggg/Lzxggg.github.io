@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            Vue第三天 学习记录
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/07/08 周一 22:11&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/07/08 周一 22:10
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <p>#### </p>
+<h4 id="Vue键盘码"><a href="#Vue键盘码" class="headerlink" title="Vue键盘码"></a>Vue键盘码</h4><blockquote>
+<p>使用：keydown  keyup  keypress</p>
+<p>每一个事件拥有系统预设好的键盘码 回车键等常用 习惯用键</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> v-model=<span class="string">"name"</span>  @keydown.enter=<span class="string">"add"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>除此之外我们还可以自定义键盘吗来使用 利用f2的键盘码为113 但是不在系统预设的键 我们可以像下面一样定义  使用起来和上面是一样的</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Vue.config.keyCodes.f2 = <span class="number">113</span></span><br><span class="line">&lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> v-model=<span class="string">"name"</span>  @keydown.f2=<span class="string">"add"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Vue的私有过滤器"><a href="#Vue的私有过滤器" class="headerlink" title="Vue的私有过滤器"></a>Vue的私有过滤器</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el:<span class="string">'#app'</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;,</span><br><span class="line">    filter:&#123;</span><br><span class="line">        <span class="comment">//写方法一样  方法名字就是过滤器的名字</span></span><br><span class="line">        <span class="comment">//在参数列表中，通过parttern = '' 来指定形参默认值，防止报错</span></span><br><span class="line">        dataFormat(input,pattern = <span class="string">''</span>)&#123;</span><br><span class="line">            <span class="keyword">var</span> dt = <span class="keyword">new</span> <span class="built_in">Date</span>(input)</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">var</span> y = dt.getFullYear()</span><br><span class="line">            <span class="keyword">var</span> m = (dt.getMouth + <span class="number">1</span>).toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">            <span class="keyword">var</span> d = dt.getDate().toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(pattern.toLowerCase() === <span class="string">'yyyy-mm-dd'</span>)&#123;</span><br><span class="line">                <span class="comment">//这里要用模板字符串的 `` 而不是单引号</span></span><br><span class="line">                <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;y&#125;</span>-<span class="subst">$&#123;m&#125;</span>-<span class="subst">$&#123;d&#125;</span>`</span></span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">             <span class="keyword">var</span> hh = dt.getHours().toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">             <span class="keyword">var</span> ff = dt.getMinutes().toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">             <span class="keyword">var</span> ss = dt.getSeconds().toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">             <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;y&#125;</span>-<span class="subst">$&#123;m&#125;</span>-<span class="subst">$&#123;d&#125;</span> <span class="subst">$&#123;hh&#125;</span>-<span class="subst">$&#123;ff&#125;</span>-<span class="subst">$&#123;ss&#125;</span>`</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="ES6-新API"><a href="#ES6-新API" class="headerlink" title="ES6 新API"></a>ES6 新API</h4><blockquote>
+<p>使用ES6中的字符串新方法 String.prototype.padStart(maxLength, fillString=’’) 或 String.prototype.padEnd(maxLength, fillString=’’)来填充字符串；</p>
+<p>第一个参数：字符串最大长度</p>
+<p>第二个参数：如果不够最大长度  其余的位数补 相应的字符</p>
+</blockquote>
+<h4 id="Vue自己指定指令"><a href="#Vue自己指定指令" class="headerlink" title="Vue自己指定指令"></a>Vue自己指定指令</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义全局指令 v-focus，为绑定的元素自动获取焦点：</span></span><br><span class="line"></span><br><span class="line">  Vue.directive(<span class="string">'focus'</span>, &#123;</span><br><span class="line"></span><br><span class="line">    inserted: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123; <span class="comment">// inserted 表示被绑定元素插入父节点时调用</span></span><br><span class="line"></span><br><span class="line">      el.focus();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 自定义局部指令 v-color 和 v-font-weight，为绑定的元素设置指定的字体颜色 和 字体粗细：</span></span><br><span class="line"></span><br><span class="line">    directives: &#123;</span><br><span class="line"></span><br><span class="line">      color: &#123; <span class="comment">// 为元素设置指定的字体颜色</span></span><br><span class="line"></span><br><span class="line">        bind(el, binding) &#123;</span><br><span class="line"></span><br><span class="line">          el.style.color = binding.value;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      &#125;,</span><br><span class="line"></span><br><span class="line">      <span class="string">'font-weight'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">el, binding2</span>) </span>&#123; <span class="comment">// 自定义指令的简写形式，等同于定义了 bind 和 update 两个钩子函数</span></span><br><span class="line"></span><br><span class="line">        el.style.fontWeight = binding2.value;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>自定义指令的使用方式：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; v-model=&quot;searchName&quot; v-focus v-color=&quot;&apos;red&apos;&quot; v-font-weight=&quot;900&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Vue-new-的过程"><a href="#Vue-new-的过程" class="headerlink" title="Vue new()的过程"></a>Vue new()的过程</h4><h4 id><a href="#" class="headerlink" title></a><img src="C:%5CUsers%5CLzxgg%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1562594981631.png" alt="1562594981631"></h4>
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
