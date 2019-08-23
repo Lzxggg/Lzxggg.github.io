@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/08/23 周五 19:58&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/08/23 周五 19:57
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <hr>
+<h2 id="title-Vue-cli打包后的优化"><a href="#title-Vue-cli打包后的优化" class="headerlink" title="title:Vue-cli打包后的优化"></a>title:Vue-cli打包后的优化</h2><h3 id="Vue-Cli-打包"><a href="#Vue-Cli-打包" class="headerlink" title="Vue-Cli 打包"></a>Vue-Cli 打包</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>打包后的文件名为dist</p>
+<p>文件结构 <code>js</code>,<code>css</code>,<code>img</code>,<code>index.html</code></p>
+<p>如下</p>
+</blockquote>
+
+
+
+
+<h4 id="打包后的惊喜"><a href="#打包后的惊喜" class="headerlink" title="打包后的惊喜"></a>打包后的惊喜</h4><blockquote>
+<p>打包之后 我一个JS文件给  干到了 1.7 M</p>
+<p>而服务器 1M 的速度    整整加载了几十秒</p>
+</blockquote>
+<h3 id="开始优化"><a href="#开始优化" class="headerlink" title="开始优化"></a>开始优化</h3><h4 id="1-路由懒加载"><a href="#1-路由懒加载" class="headerlink" title="1.路由懒加载"></a>1.路由懒加载</h4><blockquote>
+<p>官方参考：<a href="https://router.vuejs.org/zh/guide/advanced/lazy-loading.html" target="_blank" rel="noopener">https://router.vuejs.org/zh/guide/advanced/lazy-loading.html</a></p>
+<p>本人使用的是在 webpack4 中的方法</p>
+</blockquote>
+
+
+<blockquote>
+<p>没有路由懒加载之前是这样：</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">import</span> index <span class="keyword">from</span> <span class="string">'./components/index.vue'</span></span><br><span class="line"></span><br><span class="line">&#123; <span class="attr">path</span>: <span class="string">'/'</span>,</span><br><span class="line">     component: index,</span><br><span class="line">     name:<span class="string">"index"</span>,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通过路由懒加载 分出去了不少文件大小</p>
+</blockquote>
+<h4 id="2-按需引入"><a href="#2-按需引入" class="headerlink" title="2.按需引入"></a>2.按需引入</h4><blockquote>
+<p>通常为了提高用户体验  服务器负荷</p>
+<p>我们按需引入会提高效率 减小文件大小</p>
+<p>我用的是 Antd 所以我来写一下 Antd 中是如何做的把</p>
+</blockquote>
+<p>1.在 babel.config.js 中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    presets: [</span><br><span class="line">        <span class="string">'@vue/app'</span></span><br><span class="line">    ],</span><br><span class="line">    plugins: [</span><br><span class="line">        [<span class="string">"import"</span>, &#123; <span class="string">"libraryName"</span>: <span class="string">"ant-design-vue"</span>, <span class="string">"libraryDirectory"</span>: <span class="string">"es"</span>, <span class="string">"style"</span>: <span class="string">"css"</span> &#125;]</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在main.js中</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line">- <span class="keyword">import</span> Button <span class="keyword">from</span> <span class="string">'ant-design-vue/lib/button'</span>;</span><br><span class="line">+ <span class="keyword">import</span> &#123; Button &#125; <span class="keyword">from</span> <span class="string">'ant-design-vue'</span>;</span><br><span class="line">- <span class="keyword">import</span> <span class="string">'ant-design-vue/dist/antd.css'</span></span><br><span class="line">  <span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App'</span></span><br><span class="line"></span><br><span class="line">  Vue.component(Button.name, Button)</span><br><span class="line"></span><br><span class="line">  Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    render: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">  &#125;).$mount(<span class="string">"#app"</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>注意</li>
+</ol>
+<blockquote>
+<p>有一些模块 你需要 use 而不是 component</p>
+<p>例如 Menu Input Select From Card</p>
+</blockquote>
+<h4 id="3-关于-Antd-中的-Icon-字体图标库"><a href="#3-关于-Antd-中的-Icon-字体图标库" class="headerlink" title="3.关于 Antd 中的 Icon 字体图标库"></a>3.关于 Antd 中的 Icon 字体图标库</h4><blockquote>
+<p>按需引入之后我重新打包了  </p>
+<p>还是和以前一样大  我傻了</p>
+<p> 如果你引入了Antd的Icon 或者 在页面 用了 <a-icon> 标签 它会自动把<code>Icon</code>的整个<code>dist</code>给你干上去 整整</a-icon></p>
+<p>500KB  让我泪流满面</p>
+</blockquote>
+<h5 id="我是如何发现这个原因的"><a href="#我是如何发现这个原因的" class="headerlink" title="我是如何发现这个原因的"></a>我是如何发现这个原因的</h5><blockquote>
+<p>通过 webpack-bundle-analyzer 插件  在打包资源的同时会给你列出来是哪些文件 占了多少空间</p>
+</blockquote>
+
+
+<blockquote>
+<p>看见没 就是那个显眼的<code>dist</code>万恶之源简直是</p>
+<p>然后我去找如何解决这个问题  很多博客上都是写了在 github 有大神写了一个 小项目来搞</p>
+<p>项目链接:<a href="https://github.com/HeskeyBaozi/reduce-antd-icons-bundle-demo" target="_blank" rel="noopener">https://github.com/HeskeyBaozi/reduce-antd-icons-bundle-demo</a></p>
+<p>我当时使用不太会用 我怕其他人也不会直接给你们写</p>
+</blockquote>
+<p>1.首先在 src 目录下创建一个icon.js</p>
+
+
+<p>2.icon.js中如何书写</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//你需要替换的就是  </span></span><br><span class="line"><span class="keyword">default</span> <span class="keyword">as</span> xxxx</span><br><span class="line"><span class="string">'@ant-design/icons/lib/outline/xxxx'</span></span><br><span class="line"><span class="comment">//这两个xxxx都要一致  那么问题来了</span></span><br><span class="line"><span class="comment">//我找到我想要的图标后 怎么找这个名字</span></span><br><span class="line"><span class="comment">//很简单 你找到这个目录 @ant-design/icons/lib/outline</span></span><br><span class="line"><span class="comment">//比如  我用个 user 图标  那么 xxxx 就是UserOutline</span></span><br><span class="line"><span class="comment">//比如  用个 user-info 图标 那么  xxxx 就是UserInfo 横杠直接变大写</span></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> ReadOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/ReadOutline'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> EditOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/EditOutline'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// export what antd other components need</span></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> OrderedListOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/OrderedListOutline'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> HomeOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/HomeOutline'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> UserOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/UserOutline'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> FileDoneOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/FileDoneOutline'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> QuestionCircleOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/QuestionCircleOutline'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> SearchOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/SearchOutline'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>3.在 webpack.config.js 中配置 </p>
+<blockquote>
+<p>如果你项目里没有这个配置 你就直接在项目根目录里创建一个</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123; </span><br><span class="line">    configureWebpack: &#123;</span><br><span class="line">        resolve: &#123;</span><br><span class="line">            alias: &#123;</span><br><span class="line">                <span class="string">"@ant-design/icons/lib/dist$"</span>: path.resolve(__dirname, <span class="string">"./src/icons.js"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="这样你就把这个500多KB一下子干掉了！"><a href="#这样你就把这个500多KB一下子干掉了！" class="headerlink" title="这样你就把这个500多KB一下子干掉了！"></a>这样你就把这个500多KB一下子干掉了！</h5>
+
+<h5 id="优化未结束-还有600kb-现在去看Gzip！"><a href="#优化未结束-还有600kb-现在去看Gzip！" class="headerlink" title="优化未结束  还有600kb 现在去看Gzip！"></a>优化未结束  还有600kb 现在去看Gzip！</h5>
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
