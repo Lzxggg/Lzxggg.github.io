@@ -55,7 +55,7 @@
             2019/08/23 周五 19:58&nbsp;&nbsp;&nbsp;
             <span class="just-a-temp"><span>
             <i class="fas fa-redo"></i>
-            2019/08/23 周五 20:16
+            2019/08/23 周五 20:21
         </span></span></div>
     </div>
     <div class="article-content">
@@ -66,7 +66,7 @@
 <p>文件结构 <code>js</code>,<code>css</code>,<code>img</code>,<code>index.html</code></p>
 <p>如下</p>
 </blockquote>
-<p>(Vue-Cli打包后的优化/jiegou.png)</p>
+<p><img src="/.com//jiegou.png" alt="结构"></p>
 <h4 id="打包后的惊喜"><a href="#打包后的惊喜" class="headerlink" title="打包后的惊喜"></a>打包后的惊喜</h4><blockquote>
 <p>打包之后 我一个JS文件给  干到了 1.7 M</p>
 <p>而服务器 1M 的速度    整整加载了几十秒</p>
@@ -75,8 +75,7 @@
 <p>官方参考：<a href="https://router.vuejs.org/zh/guide/advanced/lazy-loading.html" target="_blank" rel="noopener">https://router.vuejs.org/zh/guide/advanced/lazy-loading.html</a></p>
 <p>本人使用的是在 webpack4 中的方法</p>
 </blockquote>
-<img src="/.com//08/23/Vue-Cli打包后的优化/youhua.png" title="my secondimage">
-
+<p><img src="/.com//youhua.png" alt="结构"></p>
 <blockquote>
 <p>没有路由懒加载之前是这样：</p>
 </blockquote>
@@ -122,7 +121,7 @@
 <p>我当时使用不太会用 我怕其他人也不会直接给你们写</p>
 </blockquote>
 <p>1.首先在 src 目录下创建一个icon.js</p>
-<p>(Vue-Cli打包后的优化/mulu.png)</p>
+<p><img src="/.com//mulu.png" alt="结构"></p>
 <p>2.icon.js中如何书写</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//你需要替换的就是  </span></span><br><span class="line"><span class="keyword">default</span> <span class="keyword">as</span> xxxx</span><br><span class="line"><span class="string">'@ant-design/icons/lib/outline/xxxx'</span></span><br><span class="line"><span class="comment">//这两个xxxx都要一致  那么问题来了</span></span><br><span class="line"><span class="comment">//我找到我想要的图标后 怎么找这个名字</span></span><br><span class="line"><span class="comment">//很简单 你找到这个目录 @ant-design/icons/lib/outline</span></span><br><span class="line"><span class="comment">//比如  我用个 user 图标  那么 xxxx 就是UserOutline</span></span><br><span class="line"><span class="comment">//比如  用个 user-info 图标 那么  xxxx 就是UserInfo 横杠直接变大写</span></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> ReadOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/ReadOutline'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> EditOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/EditOutline'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// export what antd other components need</span></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> OrderedListOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/OrderedListOutline'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> HomeOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/HomeOutline'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> UserOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/UserOutline'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> FileDoneOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/FileDoneOutline'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> QuestionCircleOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/QuestionCircleOutline'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">as</span> SearchOutline</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@ant-design/icons/lib/outline/SearchOutline'</span>;</span><br></pre></td></tr></table></figure>
 
@@ -132,7 +131,7 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123; </span><br><span class="line">    configureWebpack: &#123;</span><br><span class="line">        resolve: &#123;</span><br><span class="line">            alias: &#123;</span><br><span class="line">                <span class="string">"@ant-design/icons/lib/dist$"</span>: path.resolve(__dirname, <span class="string">"./src/icons.js"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="这样你就把这个500多KB一下子干掉了！"><a href="#这样你就把这个500多KB一下子干掉了！" class="headerlink" title="这样你就把这个500多KB一下子干掉了！"></a>这样你就把这个500多KB一下子干掉了！</h5><p>(Vue-Cli打包后的优化/afteryouhua.png)</p>
+<h5 id="这样你就把这个500多KB一下子干掉了！"><a href="#这样你就把这个500多KB一下子干掉了！" class="headerlink" title="这样你就把这个500多KB一下子干掉了！"></a>这样你就把这个500多KB一下子干掉了！</h5><p><img src="/.com//afteryouhua.png" alt="结构"></p>
 <h5 id="优化未结束-还有600kb-现在去看Gzip！"><a href="#优化未结束-还有600kb-现在去看Gzip！" class="headerlink" title="优化未结束  还有600kb 现在去看Gzip！"></a>优化未结束  还有600kb 现在去看Gzip！</h5>
     </div>
 
