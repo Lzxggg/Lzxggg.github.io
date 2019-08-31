@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            Antd-pagination（坑）
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/08/31 周六 09:59&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/08/31 周六 09:58
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <h4 id="操作-pagination"><a href="#操作-pagination" class="headerlink" title="操作 pagination"></a>操作 pagination</h4><blockquote>
+<p>先在 a-table 中绑定</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a-table</span> <span class="attr">:columns</span>=<span class="string">"columns"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">:dataSource</span>=<span class="string">"problemList"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">:rowKey</span>=<span class="string">"record =&gt; record.problemId"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">:loading</span>=<span class="string">"loading"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">:pagination</span>=<span class="string">"pagination"</span></span></span><br><span class="line"><span class="tag">              @<span class="attr">change</span>=<span class="string">"handleTableChange"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a-table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在data中的pagination对象</span></span><br><span class="line">pagination: &#123;</span><br><span class="line">    <span class="comment">//写接口传 数据 这里如果total不先给个初始值   在axios 中赋值也不会更新这个字段</span></span><br><span class="line">    total:<span class="number">0</span>,</span><br><span class="line">    pageSize:<span class="number">10</span></span><br><span class="line"></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>需求:</p>
+<blockquote>
+<p>比如我在进入页面的时候呢 我需要拿到一共有多少条记录 服务器传输过来的字段为 totalElements</p>
+</blockquote>
+<p>实现:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$axios.get(<span class="string">'/problem?page=1&amp;count=10'</span>).then( <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                   <span class="keyword">this</span>.pagination.total = res.data.totalElements</span><br><span class="line">                   <span class="keyword">this</span>.problemList = res.data.content</span><br><span class="line">                   <span class="keyword">this</span>.loading = <span class="literal">false</span>;</span><br><span class="line">               &#125; )</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
