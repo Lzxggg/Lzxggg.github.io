@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            原型链
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/09/04 周三 22:19&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/09/04 周三 22:14
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><blockquote>
+<p><strong>什么是原型链？</strong></p>
+<p>在一个由构造函数创建的实例中</p>
+<p>会先在实例中寻找变量</p>
+<p>如果找不到就去找 <code>__proto__</code>这个属性中寻找 也就是本身这个构造函数的 prototype 属性</p>
+<p>我们手动改变构造函数的 prototype  的指向于是得到原型链 并继承一些特性</p>
+</blockquote>
+<h5 id="原型和实例的关系"><a href="#原型和实例的关系" class="headerlink" title="原型和实例的关系"></a>原型和实例的关系</h5><blockquote>
+<p>每个构造函数(constructor)都有一个原型对象(prototype),原型对象都包含一个指向构造函数的指针,而实例(instance)都包含一个指向原型对象的内部指针.</p>
+</blockquote>
+<h5 id="确定原型和实例的关系"><a href="#确定原型和实例的关系" class="headerlink" title="确定原型和实例的关系"></a>确定原型和实例的关系</h5><blockquote>
+<p>1.使用 <code>instanceof</code> 操作符，只要用这个操作符来测试实例(instance)与原型链中出现过的构造函数，结果就会返回true</p>
+</blockquote>
+<p>由于原型链的关系，我们可以说 instance 是Object，Father 或 Son 中任何一个类型的实例.因此，这三个构造函数的结果都返回了true</p>
+<blockquote>
+<p>2.使用 isPrototypeOf() 方法，同样只要是原型链中出现过的原型,isPrototype()方法就会返回true</p>
+</blockquote>
+<h5 id="原型链存在的问题"><a href="#原型链存在的问题" class="headerlink" title="原型链存在的问题"></a>原型链存在的问题</h5><blockquote>
+<p>1.如果一个父类中有引用类型的值，该引用类型会被所有实例共享</p>
+<p>为什么会被共享：</p>
+<p>因为在Cat指定prototype的时候初始化了一个 Animal 实例 以后的Cat  new 出来都是用这一个实例</p>
+<p>所以如果有一个改变了它  其他子代指针所指向的地方还是不变的  </p>
+<ol start="2">
+<li>在创建子类型(例如创建Son的实例)时,不能向超类型(例如Father)的构造函数中传递参数.</li>
+</ol>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.name = name</span><br><span class="line">       <span class="keyword">this</span>.list=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       </span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   Cat.prototype = <span class="keyword">new</span> Animal()</span><br><span class="line"></span><br><span class="line"><span class="comment">//在创建子类型(例如创建Son的实例)时,不能向超类型(例如Father)的构造函数中传递参数.</span></span><br><span class="line">   <span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">"haha"</span>)</span><br><span class="line"></span><br><span class="line">   cat.list.push(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">   <span class="built_in">console</span>.log(cat.list); <span class="comment">//1235</span></span><br><span class="line"></span><br><span class="line">   <span class="built_in">console</span>.log(cat);</span><br><span class="line"><span class="comment">//如果我在这里再初始化一次  那么 cat2.list打印出来就是123</span></span><br><span class="line"><span class="comment">//Cat.prototype = new Animal()</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> cat2 = <span class="keyword">new</span> Cat()</span><br><span class="line"><span class="comment">//在这里的时候 Cat 实例中没有找到 list 由于改变了prototype的指向 于是往Animal构造函数中寻找</span></span><br><span class="line">   <span class="built_in">console</span>.log(cat2.list); <span class="comment">//1235</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="解决方法1-借用构造函数（经典继承）"><a href="#解决方法1-借用构造函数（经典继承）" class="headerlink" title="解决方法1:借用构造函数（经典继承）"></a>解决方法1:借用构造函数（经典继承）</h6><blockquote>
+<p>这种方法不能解决函数复用问题 </p>
+<p>因为每一个实例都单独创建了一个方法</p>
+<p>并不是所有调用都是一个目标函数</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.name = name</span><br><span class="line">       <span class="keyword">this</span>.list=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="comment">//在Cat构造函数中 调用Animal 这样每次初始化的时候 都不是指向一个Animal实例对象 解决问题1</span></span><br><span class="line">       Animal.call(<span class="keyword">this</span>) <span class="comment">//这里就能传递参数了 解决问题2</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">"haha"</span>)</span><br><span class="line"></span><br><span class="line">   cat.list.push(<span class="number">5</span>)</span><br><span class="line"><span class="comment">//子向父传参 真正解决问题2</span></span><br><span class="line"><span class="built_in">console</span>.log(cat.name); <span class="comment">//haha</span></span><br><span class="line"></span><br><span class="line">   <span class="built_in">console</span>.log(cat.list); <span class="comment">//1235</span></span><br><span class="line"></span><br><span class="line">   <span class="built_in">console</span>.log(cat);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> cat2 = <span class="keyword">new</span> Cat()</span><br><span class="line"></span><br><span class="line">   <span class="built_in">console</span>.log(cat2.list); <span class="comment">//123</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="解决方法2：组合继承"><a href="#解决方法2：组合继承" class="headerlink" title="解决方法2：组合继承"></a>解决方法2：组合继承</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name</span><br><span class="line">        <span class="keyword">this</span>.list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    Animal.prototype.add = <span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a+b</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        Animal.call(<span class="keyword">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Cat.prototype = <span class="keyword">new</span> Animal()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> cat1 = <span class="keyword">new</span> Cat(<span class="string">"xiaomei"</span>)</span><br><span class="line"></span><br><span class="line">    cat1.list.push(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(cat1.list) <span class="comment">//12345</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(cat1.add(<span class="number">5</span>, <span class="number">6</span>)); </span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> cat2 = <span class="keyword">new</span> Cat(<span class="string">'xiaoshuai'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(cat2.list) <span class="comment">//1234</span></span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
