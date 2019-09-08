@@ -43,36 +43,55 @@
         </ul>
     </div>
 </div>
-        <div class="archive">
-    <ul class="post-archive">
-        
-        <li class="post-item">
-            <span class="post-date">
-                19/09/08</span>
-            <a href="/2019/09/08/node Path核心模块/" class="post-title">
-                
-            </a>
-        </li>
-        
-        <li class="post-item">
-            <span class="post-date">
-                19/09/04</span>
-            <a href="/2019/09/04/原型链/" class="post-title">
-                原型链
-            </a>
-        </li>
-        
-        <li class="post-item">
-            <span class="post-date">
-                19/09/02</span>
-            <a href="/2019/09/02/axios一两事/" class="post-title">
-                axios一两事
-            </a>
-        </li>
-        
-    </ul>
-</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/09/08 周日 10:24&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/09/08 周日 10:23
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <h4 id="node-Path核心模块"><a href="#node-Path核心模块" class="headerlink" title="node Path核心模块"></a>node Path核心模块</h4><h5 id="Path路径操作模块"><a href="#Path路径操作模块" class="headerlink" title="Path路径操作模块"></a>Path路径操作模块</h5><p><code>path</code>是一个核心模块，专门用来操作路径的。</p>
+<ul>
+<li><p>path.basename(‘c:/a/b/c/index.js’)   //index.js  </p>
+<p>获取路径的文件名包含后缀名</p>
+<p>path.basename(‘c:/a/b/c/index.js’,’.js’)  //index</p>
+<p>获取路径文件文件名</p>
+</li>
+<li><p>path.dirname(‘c:/a/b/c/index.js’)   //  ‘c:/a/b/c’</p>
+</li>
+<li><p>path.extname(‘c:/a/b/c/index.js’)  // 获取一个文件的扩展名 .js</p>
+</li>
+<li><p>path.isAbsolute(‘c:/a/b/c/index.js’)   //true</p>
+<p>判断是否是绝对路径</p>
+</li>
+<li><p>path.parse()  </p>
+<p>是前面几个的组合</p>
+<ul>
+<li>root 根路径</li>
+<li>dir 目录</li>
+<li>base 包含后缀名的文件名</li>
+<li>ext  后缀名</li>
+<li>name 不包含后缀名的文件名</li>
+</ul>
+</li>
+<li><p>path.join</p>
+<p>当你需要进行路径拼接的时候 推荐使用这个方法</p>
+</li>
+</ul>
 
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
         <div class="footer">
     <a href="#">
         2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
