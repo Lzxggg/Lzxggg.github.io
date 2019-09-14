@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            js类数组
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/09/14 周六 14:15&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/09/14 周六 14:15
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <h4 id="Js-数组和类数组的区别"><a href="#Js-数组和类数组的区别" class="headerlink" title="Js 数组和类数组的区别"></a>Js 数组和类数组的区别</h4><h5 id="类数组定义"><a href="#类数组定义" class="headerlink" title="类数组定义"></a>类数组定义</h5><ul>
+<li>1.拥有length属性，其他属性（索引）为非负数（对象中的索引会被当作字符串来处理）</li>
+<li>2.不具有数组所具有的方法<br>类数组对象首先是个对象，非null，非undefined，另外该对象长度(小于2的32次方)有限：假如obj是一个类数组对象<figure class="highlight plain"><figcaption><span>&& typeOf obj </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	&amp;&amp; isFinite(obj.length)</span><br><span class="line">	&amp;&amp; obj.length &gt;= 0</span><br><span class="line">	&amp;&amp; obj.length === Math.floor(o.length)</span><br><span class="line">	&amp;&amp; obj.length &lt; 2^32</span><br><span class="line">	</span><br><span class="line">	举例类数组对象 var a = [&quot;0&quot;:&quot;a&quot;,&quot;1&quot;:&quot;b&quot;,&quot;2&quot;:&quot;c&quot;,length:3]</span><br><span class="line">js</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="isFinite"><a href="#isFinite" class="headerlink" title="isFinite()"></a>isFinite()</h5><blockquote>
+<p>用于检查其参数是否无穷大<br>    如果 number 是NaN（非数字），或者正、负无穷大的数，则返回false</p>
+</blockquote>
+<h5 id="常见的类数组对象的介绍"><a href="#常见的类数组对象的介绍" class="headerlink" title="常见的类数组对象的介绍"></a>常见的类数组对象的介绍</h5><pre><code>1.Arguments对象
+2.document.getElementsByTagName() 返回一个类数组对象</code></pre><h4 id="类数组对象可以手动添加一个push方法"><a href="#类数组对象可以手动添加一个push方法" class="headerlink" title="类数组对象可以手动添加一个push方法"></a>类数组对象可以手动添加一个push方法</h4><pre><code>push方法在调用的时候，会从 length 开始进行传值  如果length 索引在数组中已经存在 
+那么就会覆盖掉该索引的值  而不是再添加一个</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">example：</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line"><span class="string">"2"</span>:<span class="string">"a"</span>,</span><br><span class="line"><span class="string">"3"</span>:<span class="string">"b"</span>,</span><br><span class="line"><span class="string">"length"</span>:<span class="number">2</span>,</span><br><span class="line"><span class="string">"push"</span>:<span class="built_in">Array</span>.prototype.push</span><br><span class="line">&#125;</span><br><span class="line">obj.push(<span class="string">'c'</span>);</span><br><span class="line">obj.push(<span class="string">'d'</span>);</span><br><span class="line"><span class="comment">//最后obj变成怎么样的</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line"><span class="string">"2"</span>:<span class="string">"c"</span>,</span><br><span class="line"><span class="string">"3"</span>:<span class="string">"d"</span>,</span><br><span class="line"><span class="string">"length"</span>:<span class="number">2</span>,</span><br><span class="line"><span class="string">"push"</span>:<span class="built_in">Array</span>.prototype.push</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
