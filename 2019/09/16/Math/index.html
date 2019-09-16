@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            Math
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/09/16 周一 10:51&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/09/16 周一 10:50
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="三角函数"><a href="#三角函数" class="headerlink" title="三角函数"></a>三角函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过解构赋值来 拿到函数</span></span><br><span class="line"><span class="keyword">let</span> &#123; cos , sin , tan , PI , xcos  , xsin , xtan &#125; = <span class="built_in">Math</span></span><br><span class="line"><span class="keyword">let</span> &#123;log&#125; = <span class="built_in">console</span></span><br><span class="line"><span class="built_in">console</span>.log(cos(PI)); <span class="comment">//余弦</span></span><br><span class="line"><span class="built_in">console</span>.log(sin(PI)); <span class="comment">//正弦</span></span><br><span class="line"><span class="built_in">console</span>.log(tan(PI)); <span class="comment">//正切</span></span><br><span class="line"><span class="built_in">console</span>.log(xcos(PI)); <span class="comment">//反余弦</span></span><br><span class="line"><span class="built_in">console</span>.log(xsin(PI)); <span class="comment">//反正弦</span></span><br><span class="line"><span class="built_in">console</span>.log(xtan(PI)); <span class="comment">//反正切</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="绝对值"><a href="#绝对值" class="headerlink" title="绝对值"></a>绝对值</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; log &#125; = <span class="built_in">console</span></span><br><span class="line"><span class="keyword">let</span> &#123; abs &#125; = <span class="built_in">Math</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">-10000</span></span><br><span class="line"></span><br><span class="line">log(abs(a)) <span class="comment">//10000</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="小数取整"><a href="#小数取整" class="headerlink" title="小数取整"></a>小数取整</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; log &#125; = <span class="built_in">console</span></span><br><span class="line"><span class="keyword">let</span> &#123; floor , ceil &#125; = <span class="built_in">Math</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1.45</span></span><br><span class="line"></span><br><span class="line">log(floor(a))  <span class="comment">//1   向下取整</span></span><br><span class="line">log(ceil(a))   <span class="comment">//2   向上取整</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="最大值、最小值"><a href="#最大值、最小值" class="headerlink" title="最大值、最小值"></a>最大值、最小值</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; log &#125; = <span class="built_in">console</span></span><br><span class="line"><span class="keyword">let</span> &#123; max , min &#125; = <span class="built_in">Math</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ,<span class="number">4</span> ,<span class="number">5</span> , <span class="number">99</span> , <span class="number">88</span> , <span class="number">77</span>]</span><br><span class="line"></span><br><span class="line">log(max(...a))  <span class="comment">//99</span></span><br><span class="line">log(min(...a))  <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; log &#125; = <span class="built_in">console</span></span><br><span class="line"><span class="keyword">let</span> &#123; random , floor&#125; = <span class="built_in">Math</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//random*16 生产出一个  0 - 16  的随机小数</span></span><br><span class="line"><span class="comment">//生成一个十六进制的随机颜色</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomColors</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> a = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>,<span class="string">'E'</span>,<span class="string">'F'</span>]</span><br><span class="line">    <span class="keyword">let</span> color = <span class="string">"#"</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span> ;i++)&#123;</span><br><span class="line">        color = color.concat(a[floor(random()*<span class="number">16</span>)])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> color</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//以下函数返回min（包含） - max（包含）之间的整数数字</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRndInteger</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> floor(random() * (max - min) ) + min;</span><br><span class="line">&#125;</span><br><span class="line">log(randomColors())</span><br></pre></td></tr></table></figure>
+
+<h4 id="四舍五入"><a href="#四舍五入" class="headerlink" title="四舍五入"></a>四舍五入</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; log &#125; = <span class="built_in">console</span></span><br><span class="line"><span class="keyword">let</span> &#123; round  &#125; = <span class="built_in">Math</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1.1</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">1.6</span></span><br><span class="line"></span><br><span class="line">log(round(a)) <span class="comment">//1</span></span><br><span class="line">log(round(b)) <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="取平方根"><a href="#取平方根" class="headerlink" title="取平方根"></a>取平方根</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; log &#125; = <span class="built_in">console</span></span><br><span class="line"><span class="keyword">let</span> &#123; sqrt  &#125; = <span class="built_in">Math</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">9</span></span><br><span class="line"></span><br><span class="line">log(sqrt(<span class="number">9</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="pow-求x的y次幂"><a href="#pow-求x的y次幂" class="headerlink" title="pow 求x的y次幂"></a>pow 求x的y次幂</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; log &#125; = <span class="built_in">console</span></span><br><span class="line"><span class="keyword">let</span> &#123; sqrt  &#125; = <span class="built_in">Math</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">9</span></span><br><span class="line"></span><br><span class="line">log(sqrt(<span class="number">9</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="exp-自然底数e的x次幂"><a href="#exp-自然底数e的x次幂" class="headerlink" title="exp 自然底数e的x次幂"></a>exp 自然底数e的x次幂</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; log &#125; = <span class="built_in">console</span></span><br><span class="line"><span class="keyword">let</span> &#123; exp  &#125; = <span class="built_in">Math</span></span><br><span class="line"></span><br><span class="line">log(exp(<span class="number">2</span>)) <span class="comment">//7.38905609893065</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="log-返回数的自然底数"><a href="#log-返回数的自然底数" class="headerlink" title="log  返回数的自然底数"></a>log  返回数的自然底数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; log , E &#125; = <span class="built_in">Math</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(log(E*E)) <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="trunc-去掉小数部分"><a href="#trunc-去掉小数部分" class="headerlink" title="trunc 去掉小数部分"></a>trunc 去掉小数部分</h4><blockquote>
+<p>这个和 parseInt  floor 相比较来说 如果是去掉小数部分 就严格用trunc就可以</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; log &#125; = <span class="built_in">console</span></span><br><span class="line"><span class="keyword">let</span> &#123; trunc , floor &#125; = <span class="built_in">Math</span></span><br><span class="line"></span><br><span class="line">log( trunc(<span class="number">6.9</span>) ) <span class="comment">//6</span></span><br><span class="line">log( trunc(<span class="number">-6.9</span>) ) <span class="comment">//-6</span></span><br><span class="line">log( floor(<span class="number">-6.9</span>) ) <span class="comment">//-7</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="hypot"><a href="#hypot" class="headerlink" title="hypot"></a>hypot</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; log &#125; = <span class="built_in">console</span></span><br><span class="line"><span class="keyword">let</span> &#123;hypot&#125; = <span class="built_in">Math</span></span><br><span class="line"></span><br><span class="line">log( hypot(<span class="number">8</span>,<span class="number">6</span>) ) <span class="comment">//10</span></span><br><span class="line"><span class="comment">//  8^2 + 6^2 = 100  sqrt(100) = 10</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LI4XIh9ljNl7vLDogAQ%2F-LI4XSJWR6h8WVO802xk%2F-LI4XU07l98y8GSuSDhg%2Fimport1.png?generation=1532322520544961&alt=media" alt="img"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;E,LN2,LN10,LOG2E,LOG10E,PI,SQRT1_2,SQRT2&#125; = <span class="built_in">Math</span></span><br><span class="line"><span class="keyword">let</span> &#123;log&#125; = <span class="built_in">console</span></span><br><span class="line"></span><br><span class="line">log(E,LN2,LN10,LOG2E,LOG10E,PI,SQRT1_2,SQRT2)</span><br><span class="line"><span class="comment">//2.718281828459045</span></span><br><span class="line"><span class="comment">//0.6931471805599453</span></span><br><span class="line"><span class="comment">//2.302585092994046</span></span><br><span class="line"><span class="comment">//1.4426950408889634</span></span><br><span class="line"><span class="comment">//0.4342944819032518</span></span><br><span class="line"><span class="comment">//3.141592653589793</span></span><br><span class="line"><span class="comment">//0.7071067811865476</span></span><br><span class="line"><span class="comment">//1.4142135623730951</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
