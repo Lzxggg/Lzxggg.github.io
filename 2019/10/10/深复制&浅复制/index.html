@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            深复制&amp;浅复制
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/10/10 周四 11:04&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/10/10 周四 11:05
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <p>####浅复制：<br>复制的是存在栈内存里面的引用指针，并不是存放在堆内存中的内容，当对下一个对象下面的属性进行修改时，所有的都会变化。<br>所以当修改一个的值 就会影响所有的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//浅复制</span></span><br><span class="line"><span class="keyword">let</span> &#123;log&#125; = <span class="built_in">console</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person1 = &#123;</span><br><span class="line">    <span class="string">"name"</span>:<span class="string">"xl"</span>,</span><br><span class="line">    <span class="string">"age"</span>:<span class="number">20</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person2 = person1;</span><br><span class="line"></span><br><span class="line">person2.name = <span class="string">"shuaibi"</span></span><br><span class="line"></span><br><span class="line">log(person1.name) <span class="comment">//shuaibi</span></span><br><span class="line">log(person2.name) <span class="comment">//shuaibi</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为了解决指针共享的问题  有如下解决方法</p>
+</blockquote>
+<p>#####Object.assign浅拷贝实现解决问题<br>该方法主要用于对象的合并，将源对象source的所有可枚举属性合并到目标对象target上,此方法只拷贝源对象的自身属性，不拷贝继承的属性。</p>
+<p>Object.assign方法实行的是浅拷贝，而不是深拷贝。也就是说，如果源对象某个属性的值是对象，那么目标对象拷贝得到的是这个对象的引用。同名属性会替换。</p>
+<p>Object.assign只能进行值的复制，如果要复制的值是一个取值函数，那么将求值后再复制。<br>Object.assign可以用来处理数组，但是会把数组视为对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">    age:<span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">Object</span>.assign(&#123;&#125;,a);</span><br><span class="line">a.age = <span class="number">2</span>;</span><br><span class="line">log(b.age) <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="…扩展运算符解决问题"><a href="#…扩展运算符解决问题" class="headerlink" title="…扩展运算符解决问题"></a>…扩展运算符解决问题</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = &#123;</span><br><span class="line">    age:<span class="number">100</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> d = &#123;...c&#125;</span><br><span class="line">d.age = <span class="number">20</span></span><br><span class="line">log(c.age) <span class="comment">//100</span></span><br></pre></td></tr></table></figure>
+
+<p>这种解决方案可以解决一般问题，对于只有一层的Json对象，可以满足，但是对于对象嵌套的问题，必须使用深拷贝。</p>
+<p>####深复制：</p>
+<p>#####实现方法：<br>1.JSON全局对象parse和stringify方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepclone</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(source))</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person1 = &#123;</span><br><span class="line">    <span class="string">"name"</span>:<span class="string">"xl"</span>,</span><br><span class="line">    <span class="string">"age"</span>:<span class="number">20</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(person1));</span><br><span class="line"></span><br><span class="line">person2.name = <span class="string">"shuaibi"</span></span><br><span class="line">log(person1.name) <span class="comment">//xl</span></span><br></pre></td></tr></table></figure>
+
+<p>上面这种方法好处是非常简单易用,，对于Number, String,Obejct等来说基本实现。但是坏处也显而易见,对于正则表达式类型、函数类型等无法进行深拷贝(而且会直接丢失相应的值)。还有一点不好的地方是它会抛弃对象的constructor，也就是深复制之后，无论这个对象原本的构造函数是什么，在深复制之后都会变成Object。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person1 = &#123;</span><br><span class="line">    <span class="string">'name'</span>: <span class="string">'Jack'</span>,</span><br><span class="line">    <span class="string">'age'</span>: <span class="number">29</span>,</span><br><span class="line">    <span class="string">'fn'</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'fn'</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'reg'</span>:<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'e'</span>)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(person1));</span><br><span class="line">person2.name = <span class="string">"Kai"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person1.name);  <span class="comment">//'Jack'</span></span><br><span class="line"><span class="built_in">console</span>.log(person2.name);  <span class="comment">//'Kai'</span></span><br><span class="line"><span class="built_in">console</span>.log(person2.fn);    <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(person2.reg);   <span class="comment">//Object</span></span><br></pre></td></tr></table></figure>
+
+<p>2.遍历实现深度复制</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj, c</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//初始化一个新对象</span></span><br><span class="line">    <span class="keyword">let</span> newObj = c || &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> obj[i] === <span class="string">'object'</span>) &#123;</span><br><span class="line">            newObj[i] = obj[i].constructor === <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">            <span class="comment">//递归</span></span><br><span class="line">            deepClone(obj[i], newObj[i])</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            newObj[i] = obj[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
