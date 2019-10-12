@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/10/12 周六 10:27&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/10/10 周四 14:53
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <p>####懒加载：<br>意义：懒加载的主要目的是作为服务器前端的优化，减少请求数或延迟请求数。</p>
+<p>实现方式：</p>
+<p>1.第一种是纯粹的延迟加载，使用setTimeOut或setInterval进行加载延迟。</p>
+<p>2.第二种是条件加载，符合某些条件，或触发了某个事件才开始异步下载。</p>
+<p>3.第三种是可视区加载，即仅限加载用户可以看到的区域，这个主要有监控滚动条实现，一般会在距用户看到某图片前一定距离便开始加载，这样能保证用户下拉时正好看到图片。</p>
+<p>Web图片的懒加载就是通过读取img元素，然后获得img元素的data-src属性的值，并赋予img的src，从而实现动态加载图片的机制。</p>
+<p>这里需要注意的是：img 在初始化的时候不要设置src属性，因为即使设置src=””浏览器也会尝试加载图片。</p>
+<p>一个简单的图片懒加载共涉及两个方面，</p>
+<p>#####1.HTML约定<br>我们首先需要给准备实施懒加载的img元素添加指定的Class，这里为m-lazyload，同时将img src赋值给data-src属性。</p>
+<p>具体事例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span>  <span class="attr">data-src</span>=<span class="string">"imgUrl"</span> <span class="attr">class</span>=<span class="string">"m-lazyload"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>#####2.JS实现<br>动态加载总共分为以下几个步骤，这里每个步骤都被拆分为独立的函数。</p>
+<p>1.添加页面滚动监听事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>,_delay,<span class="literal">false</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_delay</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  clearTimeout(delay);</span><br><span class="line">  delay = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    _loadImage();</span><br><span class="line">  &#125;,time)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.当触发监听事件时会执行_loadImage函数，该函数负责加载图片</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_loadImgae</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = imgList.length;i--;)&#123;</span><br><span class="line">        <span class="keyword">let</span> el = imgList[i];</span><br><span class="line">        <span class="keyword">if</span> (_isShow(el)) &#123;</span><br><span class="line">            el.src = el.getAttribute(<span class="string">'data-src'</span>);</span><br><span class="line">            el.className = el.className.replace(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(\\s|^)"</span> + _selector.substring(<span class="number">1</span>, _selector.length) + <span class="string">"(\\s|$)"</span>), <span class="string">" "</span>)</span><br><span class="line">            imgList.splice(i,<span class="number">1</span>);</span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>虽然执行了_loadImage函数，但是我们得知道哪些图片需要被加载，这里的判断依据是什么呢？</p>
+<p>依据就是判断该图片是否在当前窗口的可视区域内，在这里我们封装一个_isShow函数来实现。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_isShow</span>(<span class="params">el</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> coords = el.getBoundingClientRect();</span><br><span class="line">  <span class="keyword">return</span> ((coords.top &gt;= <span class="number">0</span> &amp;&amp; coords.left &gt;= <span class="number">0</span> &amp;&amp; coords.top) &lt;= (<span class="built_in">window</span>.innerHeight || <span class="built_in">document</span>.documentElement.clientHeight) + <span class="built_in">parseInt</span>(offset))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
