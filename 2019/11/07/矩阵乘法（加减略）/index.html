@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            最近几周 算法的学习 总结
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/11/07 周四 23:29&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/11/07 周四 23:29
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <h4 id="矩阵乘法（加减略）"><a href="#矩阵乘法（加减略）" class="headerlink" title="矩阵乘法（加减略）"></a>矩阵乘法（加减略）</h4><p>时间复杂度 O(n^3)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> row1,col1,row2,col2;</span><br><span class="line"><span class="keyword">int</span> a[row1][col1],b[row2][col2],c[row1][col2];</span><br><span class="line"><span class="keyword">int</span> i , j , k;</span><br><span class="line"><span class="comment">//写伪代码把</span></span><br><span class="line"><span class="keyword">if</span>(col1 == row2) &#123;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;row1;i++)</span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">0</span> ;j &lt; col2;j++)&#123;</span><br><span class="line">            c[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">     <span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;row1;i++)</span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">0</span> ;j &lt; col2;j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(k = <span class="number">0</span>;k &lt; col1 || row2;k++)&#123;</span><br><span class="line">                c[i][j] += a[i][k]*b[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="高斯消元"><a href="#高斯消元" class="headerlink" title="高斯消元"></a>高斯消元</h4><p>我用的这个方法 有点暴力   复杂度O（n^2）</p>
+<p>不换行  直接减 。。。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; NUM<span class="number">-1</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!matrixL[i][i])</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">for</span>(j = i+<span class="number">1</span>;j &lt; NUM;j++) &#123;</span><br><span class="line">      temp = matrixL[j][i]/matrixL[i][i];</span><br><span class="line">      <span class="keyword">for</span>(k = i; k &lt; NUM;k++)</span><br><span class="line">        matrixL[j][k] = matrixL[j][k] - temp*matrixL[i][k];</span><br><span class="line">        matrixR[j] = matrixR[j] - temp*matrixR[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"消元后的结果为：\n"</span>);</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; NUM;i++) &#123;</span><br><span class="line">     <span class="keyword">for</span>(j = <span class="number">0</span>;j &lt; NUM;j++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.4lf "</span>,matrixL[i][j]);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(i = NUM<span class="number">-1</span>;i+<span class="number">1</span> ;i--)&#123;</span><br><span class="line">      ans = matrixR[i];</span><br><span class="line">      <span class="keyword">for</span>(j = NUM<span class="number">-1</span>;j&gt;i;j--)&#123;</span><br><span class="line">        ans = ans - matrixL[i][j]*X[j];</span><br><span class="line">      &#125;</span><br><span class="line">      X[i] = ans/matrixL[i][i];</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>总体来说对于算法的学习  还是要耐住性子   继续加油</p>
+<p>​                                                                                                                                      2019.10.30</p>
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
