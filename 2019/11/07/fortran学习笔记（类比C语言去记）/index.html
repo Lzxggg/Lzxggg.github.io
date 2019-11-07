@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            fortran学习笔记（类比C语言去记）
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/11/07 周四 22:40&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/11/07 周四 22:39
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <h3 id="fortran学习笔记（类比C语言去记）"><a href="#fortran学习笔记（类比C语言去记）" class="headerlink" title="fortran学习笔记（类比C语言去记）"></a>fortran学习笔记（类比C语言去记）</h3><h4 id="大体结构"><a href="#大体结构" class="headerlink" title="大体结构"></a>大体结构</h4><p>fortran</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main ！相当于void main</span><br><span class="line"><span class="keyword">integer</span> :: b = <span class="number">10</span></span><br><span class="line"><span class="built_in">write</span>(*,*) <span class="string">"Hello world!"</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>C</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello world"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>write(*,*) 相当于printf   也就是fortran的打印  这两个星号有讲究   要看的话自行百度这里不再细述</p>
+<p>fortran 还有一个和C很像的打印 ： print *,”Hello world!”</p>
+</blockquote>
+<h4 id="微小细节"><a href="#微小细节" class="headerlink" title="微小细节"></a>微小细节</h4><p>fortran :</p>
+<ul>
+<li>每一条语句后不需要加分号</li>
+<li>fortran的注释：!           C语言的注释:  // </li>
+<li>如果<strong>续行</strong>可以添加&amp;符号</li>
+<li>fortran的双冒号  <strong>:: 作用 声明一个变量后可以直接在后边赋值</strong> 不然像integer a = 10 是不对的语法 应该是integer :: a = 10</li>
+<li>fortran<strong>是不区分 大小写字母的</strong>  然而 C 是区分的 所以混合编程的时候 函数名尽量别用驼峰命名法 即 ：maxNum 这种  尽量纯小写</li>
+<li>当第一条执行命令开始的时候  声明便不可用了后边再有声明会报错  所以<strong>执行命令开始前要定义 声明好所有的变量</strong></li>
+</ul>
+<p>C：每一条语句后都要加分号 不然编译不通过</p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p><strong>fortran</strong> :</p>
+<p>integer  相当于C语言的 int</p>
+<p><strong>real</strong> : </p>
+<ul>
+<li>real(4) 相当于C语言的float </li>
+<li>real(8) 相当于C语言的double</li>
+</ul>
+<p><strong>character</strong> ：</p>
+<p>相当于C语言的 char 但是又和char 有所不同</p>
+<p>character (num) </p>
+<p>当num == 1  或者没有括号 charater :: b时 ，说明 b 是一个字符</p>
+<p>当num &gt;= 2 时 可以作为一个字符串</p>
+<p>字符串的连接符：//</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">character</span> ::  a , b , c</span><br><span class="line">a = <span class="string">"Hello"</span></span><br><span class="line">b = <span class="string">"World"</span></span><br><span class="line">c = a//b  <span class="comment">!c = "Hello World"</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>logical</strong>:</p>
+<p>相当于 C 的Boolean</p>
+<p>.true. 相当于 true</p>
+<p>.false. 相当于false</p>
+<p><strong>complex：</strong></p>
+<p>复数：我们以前学过但是 我有点忘了 但是隐约记得…  大概就是 1 + 2i</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">complex</span>	:: a = (<span class="number">1</span>,<span class="number">2</span>)  <span class="comment">! a = 1+2i</span></span><br></pre></td></tr></table></figure>
+
+<p>这个也分单精度双精度 </p>
+<p>单精度complex(4)</p>
+<p>双精度complex(8)</p>
+<p>现在我还不理解有什么用 0.0 </p>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><blockquote>
+<p>应该当心 fortran 数组的索引开始是 1  并不是 0 </p>
+</blockquote>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">integer</span> a(<span class="number">6</span>) <span class="comment">!相当于声明了一个 一维整型数组  长度为6</span></span><br><span class="line"><span class="keyword">integer</span> a(<span class="number">2</span>,<span class="number">2</span>) <span class="comment">!相当于声明了一个 二维整型数组  相当于2行2列的矩阵</span></span><br></pre></td></tr></table></figure>
+
+<p>数组这里还有很多关于数组的函数</p>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">FUNCTION</span></span> <span class="keyword">name</span>( parameter_list )</span><br><span class="line">...</span><br><span class="line">(声明部分，必须声明<span class="keyword">name</span>的类型)</span><br><span class="line"><span class="keyword">type</span> :: <span class="keyword">name</span></span><br><span class="line">...</span><br><span class="line">(执行部分)</span><br><span class="line"></span><br><span class="line"><span class="keyword">name</span> = expression</span><br><span class="line"><span class="keyword">RETURN</span></span><br><span class="line"><span class="keyword">END</span> <span class="function"><span class="keyword">FUNCTION</span></span> [<span class="keyword">name</span>]  <span class="comment">! []表示可选</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>声明部分要在执行部分之前 ！ 只要有执行语句进行执行   声明则不合法</strong></p>
+</blockquote>
+<h4 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h4><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"><span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line"><span class="keyword">integer</span> :: wind = <span class="number">6</span></span><br><span class="line"><span class="keyword">integer</span> :: score = <span class="number">70</span></span><br><span class="line"><span class="keyword">integer</span> :: i, j</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">! 1 -------------if endif---------------------------------------</span></span><br><span class="line"><span class="comment">! 其他嵌套，多层if判断等，都支持， 与c语言类似    </span></span><br><span class="line"><span class="keyword">if</span> (wind &gt; <span class="number">4</span>) <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">print</span> *, <span class="string">'停止上班'</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">print</span> *, <span class="string">'还得苦逼上班'</span>    </span><br><span class="line"><span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line"><span class="comment">! 2 -------------select case------------------------------------</span></span><br><span class="line"><span class="comment">! select case(log)  log可以是整数，字符，逻辑变量</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">case</span>(score)</span><br><span class="line">    <span class="keyword">case</span>(<span class="number">80</span>:<span class="number">100</span>)</span><br><span class="line">        <span class="built_in">print</span> *, <span class="string">'A'</span></span><br><span class="line">    <span class="keyword">case</span>(<span class="number">60</span>:<span class="number">79</span>)</span><br><span class="line">        <span class="built_in">print</span> *, <span class="string">'B'</span></span><br><span class="line">    <span class="keyword">case</span>(<span class="number">0</span>:<span class="number">59</span>)</span><br><span class="line">        <span class="built_in">print</span> *, <span class="string">'C'</span></span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">default</span></span><br><span class="line">        <span class="built_in">print</span> *, <span class="string">'error'</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">select</span></span><br><span class="line"><span class="comment">! 3 -------------goto 语句-------------------------------------</span></span><br><span class="line"><span class="keyword">goto</span> <span class="number">100</span></span><br><span class="line"><span class="built_in">print</span> *, <span class="string">'no goto ops'</span></span><br><span class="line"><span class="number">100</span> <span class="built_in">print</span>*, <span class="string">'goto ops'</span></span><br><span class="line"><span class="comment">! 4 -------------do 循环---------------------------------------</span></span><br><span class="line"><span class="keyword">do</span> i=<span class="number">1</span>, <span class="number">5</span></span><br><span class="line">     <span class="built_in">print</span> *, <span class="string">'in '</span>,  i, <span class="string">' do'</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"><span class="comment">! do 循环可以设置步幅</span></span><br><span class="line"><span class="keyword">do</span> i = <span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span> *, <span class="string">'in '</span>,  i, <span class="string">' do step 2'</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line">i = <span class="number">2</span></span><br><span class="line"><span class="keyword">do</span> <span class="keyword">while</span>(i&lt;<span class="number">6</span>)</span><br><span class="line">    <span class="built_in">print</span> *, <span class="string">'in do '</span>, i, <span class="string">' while '</span></span><br><span class="line">    i = i + <span class="number">1</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"><span class="keyword">do</span> <span class="number">123</span> i=<span class="number">1</span>, <span class="number">5</span>  <span class="comment">! 只能跟数字</span></span><br><span class="line">    <span class="built_in">print</span> *, <span class="string">'biaohao ：'</span>,  i, <span class="string">' do'</span></span><br><span class="line"><span class="number">123</span> <span class="keyword">continue</span>  <span class="comment">! 这里的 continue 可以用 enddo 代替</span></span><br><span class="line"></span><br><span class="line"><span class="comment">! 5 -------------循环中的流程控制--------</span></span><br><span class="line"><span class="keyword">do</span> i=<span class="number">1</span>, <span class="number">5</span></span><br><span class="line">    <span class="keyword">if</span>(i == <span class="number">4</span>) <span class="keyword">cycle</span></span><br><span class="line">    <span class="built_in">print</span> *, <span class="string">'循环中的流程控制cycle： '</span>,  i, <span class="string">' do'</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"><span class="keyword">do</span> i=<span class="number">1</span>, <span class="number">5</span></span><br><span class="line">    <span class="keyword">if</span>(i == <span class="number">4</span>) <span class="keyword">exit</span></span><br><span class="line">    <span class="built_in">print</span> *, <span class="string">'循环中的流程控制exit：'</span>,  i, <span class="string">' do'</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"><span class="comment">! 6 -------------署名标记do循环与流程控制的结合--------</span></span><br><span class="line">outter: <span class="keyword">do</span> i=<span class="number">1</span>, <span class="number">6</span></span><br><span class="line">    inner: <span class="keyword">do</span> j=<span class="number">2</span>, <span class="number">4</span></span><br><span class="line">    <span class="keyword">if</span>(i == <span class="number">3</span>) <span class="keyword">exit</span> outter</span><br><span class="line">    <span class="keyword">if</span>(j == <span class="number">3</span>) <span class="keyword">cycle</span> inner</span><br><span class="line">    <span class="built_in">print</span> *, <span class="string">'署名do：'</span>,  i, j, <span class="string">' do'</span></span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">do</span> inner</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">do</span> outter</span><br><span class="line"><span class="comment">! 7 隐式do循环--------</span></span><br><span class="line"><span class="comment">! ---python中的隐式do也并不新鲜，这门古老的语言早就做到了</span></span><br><span class="line"><span class="built_in">print</span> *, <span class="string">'隐式do: '</span>, (i, i=<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
