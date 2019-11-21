@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            HPL.dat 的详细配置
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/11/21 周四 19:36&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/11/21 周四 19:36
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <p> HPL.dat文件见附件<br>下面说说每行的意思和设置方法<br>1、2行，这个是说明性语句，不用更改。<br>3、4行，指定输出方式，加入4行选择file输出，则3表示输出文件名，这个名字可以根据你自己的习惯更改。比如，你测试16节点，为了区分其他测试，可以改为16nodes.out等等。<br>5、6行，5行相当于说你要测试的矩阵个数，第6行则是矩阵规模，第六行设置的数字必须不小于5行的大小。第6行的设置原则是：N^2<em>64=节点内存</em>节点数<em>8，N=0.8~0.9N。举个例子，我每节点有2G内存,4节点，N的算法为：N^2</em>64=1024<em>1024</em>1024<em>2</em>4<em>8，-〉N=32000~33000，再</em>0.8~0.9即可。按照经验，在0.9左右效果会更好。<br>7、8行设置矩阵分块方法。第7行是指分块方法的种数，第八行是指分块的大小，根据经验，对于GotoBLAS在AMD4000+上，用196，232，256效果比较好，当然其他也有一些说法，不过本人觉得经验性比较强，所以多试试总会有很好的结论。<br>9行是HPL 1.0a的新增项，是选择处理器阵列是按列的排列方式还是按行的排列方式。<br>10～12行说明二维处理器网格（P×Q）。二维处理器网格（P×Q）的要遵循以下几个要求：P×Q＝进程数。这是HPL的硬性规定；P×Q＝系统CPU数＝进程数。一般来说一个进程对于一个CPU可以得到最佳性能。对于Intel Xeon来说，关闭超线程可以提高HPL性能；P≤Q，这是一个测试经验值，一般来说，P的值尽量取得小一点，因为列向通信量（通信次数和通信数据量）要远大于横向通信.等等这些，需要测试者多摸索。<br>后面的可以不用修改。<br>13行说明阈值。<br>第14～21行指明L分解的方式。</p>
+<p>附件：<br>HPLinpack benchmark input file<br>Innovative Computing Laboratory, University of Tennessee<br>HPL.out      output file name (if any)<br>6            device out (6=stdout,7=stderr,file)<br>4            # of problems sizes (N)<br>10000 10000 10000 10000  Ns<br>4            # of NBs<br>1 2 3 4      NBs<br>0            PMAP process mapping (0=Row-,1=Column-major)<br>3            # of process grids (P x Q)<br>1 1 1        Ps<br>1 1 1        Qs<br>16.0         threshold<br>3            # of panel fact<br>0 1 2        PFACTs (0=left, 1=Crout, 2=Right)<br>2            # of recursive stopping criterium<br>2 4          NBMINs (&gt;= 1)<br>1            # of panels in recursion<br>2            NDIVs<br>3            # of recursive panel fact.<br>0 1 2        RFACTs (0=left, 1=Crout, 2=Right)<br>1            # of broadcast<br>0            BCASTs (0=1rg,1=1rM,2=2rg,3=2rM,4=Lng,5=LnM)<br>1            # of lookahead depth<br>0            DEPTHs (&gt;=0)<br>2            SWAP (0=bin-exch,1=long,2=mix)<br>64           swapping threshold<br>0            L1 in (0=transposed,1=no-transposed) form<br>0            U  in (0=transposed,1=no-transposed) form<br>1            Equilibration (0=no,1=yes)<br>8            memory alignment in double (&gt; 0)  </p>
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
