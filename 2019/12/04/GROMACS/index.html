@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            安装GROMACS
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/12/04 周三 16:30&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/12/04 周三 16:30
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <p>参照博客：<a href="http://sobereva.com/457" target="_blank" rel="noopener">http://sobereva.com/457</a></p>
+<h4 id="1-安装Cmake"><a href="#1-安装Cmake" class="headerlink" title="1.安装Cmake"></a>1.安装Cmake</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum  install  cmake3</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-安装FFTW库"><a href="#2-安装FFTW库" class="headerlink" title="2.安装FFTW库"></a>2.安装FFTW库</h4><p><a href="http://www.fftw.org/fftw-3.3.8.tar.gz" target="_blank" rel="noopener">http://www.fftw.org/fftw-3.3.8.tar.gz</a></p>
+<p>下载 fftw 压缩包  有点慢 可能有镜像可以用 </p>
+<p>解压：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf 包名</span><br><span class="line">cd 到解压目录下</span><br></pre></td></tr></table></figure>
+
+<p>配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/sob/fftw338 --enable-sse2 --enable-avx --enable-float --enable-shared</span><br></pre></td></tr></table></figure>
+
+<p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j install</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-安装GROMACS"><a href="#3-安装GROMACS" class="headerlink" title="3.安装GROMACS"></a>3.安装GROMACS</h4><p>解压：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf 包名</span><br><span class="line">cd 到解压目录下</span><br></pre></td></tr></table></figure>
+
+<p>新建build目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir build </span><br><span class="line">cd build</span><br></pre></td></tr></table></figure>
+
+<p>配置相关路径</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export CMAKE_PREFIX_PATH=/sob/fftw338</span><br><span class="line">cmake3 .. -DCMAKE_INSTALL_PREFIX=/sob/gmx2018.4</span><br></pre></td></tr></table></figure>
+
+<p>安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install -j</span><br></pre></td></tr></table></figure>
+
+<p>后续：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">此时程序就被编译和安装到了/sob/gmx2018.4目录下。修改用户目录下的.bashrc文件（比如运行gedit ~/.bashrc），在末尾加入source /sob/gmx2018.4/bin/GMXRC，然后保存。</span><br><span class="line"></span><br><span class="line">之后关闭终端窗口，再次打开终端，输入gmx -version，看看是否输出了GROMACS的相关信息，是的话就说明安装成功了。</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
