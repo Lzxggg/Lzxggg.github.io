@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            C语言的指针数组
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/12/17 周二 11:20&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/12/17 周二 11:19
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <h4 id="指针数组"><a href="#指针数组" class="headerlink" title="指针数组"></a>指针数组</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *b[<span class="number">3</span>]; <span class="comment">//表示的是 长度为3 的指针数组</span></span><br><span class="line"><span class="comment">//指针数组的每一个元素 都是可以指向一个地址的指针（如下图p1）</span></span><br><span class="line"><span class="comment">//所以指针数组 在结构体中可以起到 可以存多个 数组的作用</span></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>][<span class="number">20</span>];</span><br><span class="line">b[<span class="number">0</span>] = a; <span class="comment">//这样就把a的地址赋给了指针数组的第一个元素的地址</span></span><br><span class="line"><span class="comment">//需要注意的是这里的指针数组是一维的</span></span><br><span class="line"><span class="comment">//访问时需要按照特定的方式访问</span></span><br><span class="line"><span class="comment">//如下</span></span><br><span class="line"> <span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; ied ;i++)&#123;</span><br><span class="line">     <span class="keyword">for</span>(j = <span class="number">0</span>;j &lt; jed; j++)&#123;</span><br><span class="line">          a[i][j] = <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *b[<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">    b[<span class="number">0</span>] = a;</span><br><span class="line">     <span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; ied ;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(j = <span class="number">0</span>;j &lt; jed; j++)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d"</span>,b[<span class="number">0</span>][i*<span class="number">10</span> + j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://c.biancheng.net/cpp/uploads/allimg/120205/1-120205202113a8.jpg" alt="img"></p>
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
