@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Lzxgg
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style/github.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+    <!-- <div class="logo">
+        <a href="/">Lzxgg</a>
+    </div> -->
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+    <div class="nav">
+        <ul class="menu">
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Menu.主页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="https://github.com/Lzxggg" class="menu-item-link">
+                        Menu.项目
+                    </a>
+                </li>
+                
+        </ul>
+    </div>
+</div>
+        <div class="article">
+    <!-- <div class="article-title">
+        <h2>
+            
+        </h2>
+    </div> -->
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fas fa-edit"></i>
+            2019/12/31 周二 09:40&nbsp;&nbsp;&nbsp;
+            <span class="just-a-temp"><span>
+            <i class="fas fa-redo"></i>
+            2019/12/31 周二 09:39
+        </span></span></div>
+    </div>
+    <div class="article-content">
+        <h5 id="Linux查看端口是否开放-以及开放端口"><a href="#Linux查看端口是否开放-以及开放端口" class="headerlink" title="Linux查看端口是否开放 以及开放端口"></a>Linux查看端口是否开放 以及开放端口</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>查看端口是否开放</span><br><span class="line"><span class="meta">#</span>1.使用lsof 命令来查看端口是否开放</span><br><span class="line">lsof -i:1025 #如果有显示说明已经开放了，如果没有显示说明没有开放</span><br><span class="line"><span class="meta">#</span>2.使用netstat 命令来查看端口是否开放</span><br><span class="line">netstat -nupl (UDP类型的端口)</span><br><span class="line">netstat -ntpl (TCP类型的端口)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>开放端口</span><br><span class="line"><span class="meta">#</span>开启防火墙 </span><br><span class="line">    systemctl start firewalld</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>2、开放指定端口</span><br><span class="line">      firewall-cmd --zone=public --add-port=1935/tcp --permanent</span><br><span class="line"><span class="meta">#</span> 命令含义：</span><br><span class="line"><span class="meta">#</span>--zone #作用域</span><br><span class="line"><span class="meta">#</span>--add-port=1935/tcp  #添加端口，格式为：端口/通讯协议</span><br><span class="line"><span class="meta">#</span>--permanent  #永久生效，没有此参数重启后失效</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>3、重启防火墙</span><br><span class="line">      firewall-cmd --reload</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>4、查看端口号</span><br><span class="line">netstat -ntlp   //查看当前所有tcp端口·</span><br><span class="line"></span><br><span class="line">netstat -ntulp |grep 1935   //查看所有1935端口使用情况·</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    <div class="totop">ToTOP</div>
+</div>
+        <div class="footer">
+    <a href="#">
+        2018 <i class="fab fa-studiovinari"></i> Xiao Lei <i class="fas fa-angle-double-up"></i>
+    </a>
+</div>
+
+<script src="/js/totop.js"></script>
+<script src="/js/search.js"></script>
+    </div>
+</body>
+
+</html>
